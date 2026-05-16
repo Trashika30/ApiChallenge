@@ -40,7 +40,7 @@ const Login=()=>{
       <input type="text" placeholder="Enter email address" onChange={(e)=>setEmail(e.target.value)}/>
       <input type="text" placeholder="Enter your password" onChange={(e)=>setPwd(e.target.value)}/>
       <button onClick={signIn}>SignIn</button>
-      <Link to="/login"><p>Don't have an account ? Create account</p></Link>
+      <Link to="/signup"><p>Don't have an account ? Create account</p></Link>
     </div>)
 
 }

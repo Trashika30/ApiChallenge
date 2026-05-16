@@ -19,7 +19,7 @@ const SignUp=()=>{
         .then((res)=>{
             if(res.data){
                 alert("Account created");
-                nav("/login")
+                nav("/")
             }
             else{
                 alert("Failed to create account ! Email already exists")

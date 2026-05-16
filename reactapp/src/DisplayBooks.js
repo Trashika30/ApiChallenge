@@ -5,7 +5,7 @@ const DisplayBooks=()=>{
     let [search,setSearch]=useState("");
     let[books,setBooks]=useState([]);
     let [filteredBooks,setFilteredBooks]=useState([]);
-    let[isbn,setIsbn]=useState(0);
+    let [isbn,setIsbn]=useState(0);
 
     useEffect(()=>{
         fetch("http://localhost:8080/book/showAll")
@@ -25,9 +25,9 @@ const DisplayBooks=()=>{
 
     },[])
      
-    const displayByIsbn=(isbn)=>{
+    const displayByIsbn=()=>{
         
-        fetch(`http://localhost:8080/book/showBookByIsbn/${isbn}`)
+        fetch(`http://localhost:8080/book/searchByIsbn/${isbn}`)
         .then((res)=>res.json())
         .then((res)=>{
             if(res.data){
@@ -56,8 +56,8 @@ const DisplayBooks=()=>{
     
     <h2>List of Books in Library</h2>
 
-    <input type="number" placeholder="isbn" onChange={(e)=>setIsbn(e.target.value)}/>
-
+    <input type="number" placeholder="isbn" onChange={(e)=>{setIsbn(e.target.value)}}/>
+    <button onClick={()=>displayByIsbn(isbn)}>Search by isbn</button><br/><br/>
     <input type="text" placeholder="Search by title or author" value={search} onChange={filterBooks}/>
     
     {  
